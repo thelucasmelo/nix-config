@@ -94,6 +94,7 @@
       lazydocker
       nodejs_22
       git
+      gh
     ];
   };
   # Enable share folder on guest VM
