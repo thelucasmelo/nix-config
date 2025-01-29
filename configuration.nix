@@ -70,7 +70,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    jack.enable = true;
 
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
@@ -95,6 +95,12 @@
       nodejs_22
       git
       gh
+      pavucontrol
+      pamixer
+      python314
+      ollama
+      ollama-cuda
+      lmstudio
     ];
   };
   # Enable share folder on guest VM
@@ -162,7 +168,7 @@
 
     # Nvidia power management (Experimental). 
     # Enable if an app crashed after sleep.
-    #powerManagement.enable = false;
+    powerManagement.enable = true;
     
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
@@ -186,5 +192,8 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     
   };
+   
 
+  # Enable the specific lts kernel version
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_6_6;
 }
